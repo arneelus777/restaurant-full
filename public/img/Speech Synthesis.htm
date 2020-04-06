@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- saved from url=(0104)file:///Users/arneeluslewis/projects-02/JavaScript30-master/23%20-%20Speech%20Synthesis/index-START.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Speech Synthesis</title>
+  <link href="./Speech Synthesis_files/css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./Speech Synthesis_files/style.css">
+</head>
+<body>
+
+    <div class="voiceinator">
+
+      <h1>The Voiceinator 5000</h1>
+
+      <select name="voice" id="voices"><option value="Alex">Alex (en-US)</option><option value="Alice">Alice (it-IT)</option><option value="Alva">Alva (sv-SE)</option><option value="Amelie">Amelie (fr-CA)</option><option value="Anna">Anna (de-DE)</option><option value="Carmit">Carmit (he-IL)</option><option value="Damayanti">Damayanti (id-ID)</option><option value="Daniel">Daniel (en-GB)</option><option value="Diego">Diego (es-AR)</option><option value="Ellen">Ellen (nl-BE)</option><option value="Fiona">Fiona (en)</option><option value="Fred">Fred (en-US)</option><option value="Ioana">Ioana (ro-RO)</option><option value="Joana">Joana (pt-PT)</option><option value="Jorge">Jorge (es-ES)</option><option value="Juan">Juan (es-MX)</option><option value="Kanya">Kanya (th-TH)</option><option value="Karen">Karen (en-AU)</option><option value="Kyoko">Kyoko (ja-JP)</option><option value="Laura">Laura (sk-SK)</option><option value="Lekha">Lekha (hi-IN)</option><option value="Luca">Luca (it-IT)</option><option value="Luciana">Luciana (pt-BR)</option><option value="Maged">Maged (ar-SA)</option><option value="Mariska">Mariska (hu-HU)</option><option value="Mei-Jia">Mei-Jia (zh-TW)</option><option value="Melina">Melina (el-GR)</option><option value="Milena">Milena (ru-RU)</option><option value="Moira">Moira (en-IE)</option><option value="Monica">Monica (es-ES)</option><option value="Nora">Nora (nb-NO)</option><option value="Paulina">Paulina (es-MX)</option><option value="Samantha">Samantha (en-US)</option><option value="Sara">Sara (da-DK)</option><option value="Satu">Satu (fi-FI)</option><option value="Sin-ji">Sin-ji (zh-HK)</option><option value="Tessa">Tessa (en-ZA)</option><option value="Thomas">Thomas (fr-FR)</option><option value="Ting-Ting">Ting-Ting (zh-CN)</option><option value="Veena">Veena (en-IN)</option><option value="Victoria">Victoria (en-US)</option><option value="Xander">Xander (nl-NL)</option><option value="Yelda">Yelda (tr-TR)</option><option value="Yuna">Yuna (ko-KR)</option><option value="Yuri">Yuri (ru-RU)</option><option value="Zosia">Zosia (pl-PL)</option><option value="Zuzana">Zuzana (cs-CZ)</option><option value="Google Deutsch">Google Deutsch (de-DE)</option><option value="Google US English">Google US English (en-US)</option><option value="Google UK English Female">Google UK English Female (en-GB)</option><option value="Google UK English Male">Google UK English Male (en-GB)</option><option value="Google español">Google español (es-ES)</option><option value="Google español de Estados Unidos">Google español de Estados Unidos (es-US)</option><option value="Google français">Google français (fr-FR)</option><option value="Google हिन्दी">Google हिन्दी (hi-IN)</option><option value="Google Bahasa Indonesia">Google Bahasa Indonesia (id-ID)</option><option value="Google italiano">Google italiano (it-IT)</option><option value="Google 日本語">Google 日本語 (ja-JP)</option><option value="Google 한국의">Google 한국의 (ko-KR)</option><option value="Google Nederlands">Google Nederlands (nl-NL)</option><option value="Google polski">Google polski (pl-PL)</option><option value="Google português do Brasil">Google português do Brasil (pt-BR)</option><option value="Google русский">Google русский (ru-RU)</option><option value="Google 普通话（中国大陆）">Google&nbsp;普通话（中国大陆） (zh-CN)</option><option value="Google 粤語（香港）">Google&nbsp;粤語（香港） (zh-HK)</option><option value="Google 國語（臺灣）">Google 國語（臺灣） (zh-TW)</option></select>
+
+      <label for="rate">Rate:</label>
+      <input name="rate" type="range" min="0" max="3" value="1" step="0.1">
+
+      <label for="pitch">Pitch:</label>
+
+      <input name="pitch" type="range" min="0" max="2" step="0.1">
+      <textarea name="text">Hello! I love JavaScript 👍</textarea>
+      <button id="stop">Stop!</button>
+      <button id="speak">Speak</button>
+
+    </div>
+
+<script>
+  const msg = new SpeechSynthesisUtterance();
+  let voices = [];
+  const voicesDropdown = document.querySelector('[name="voice"]');
+  const options = document.querySelectorAll('[type="range"], [name="text"]');
+  const speakButton = document.querySelector('#speak');
+  const stopButton = document.querySelector('#stop');
+  msg.text = document.querySelector("[name='text']").value;
+
+  function populateVoices() {
+    voices = this.getVoices()
+      voicesDropdown.innerHTML = voices
+      .map(voice => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
+      .join("")
+  }
+
+  function setVoice() {
+    msg.voice = voices.find(voice => voice.name === this.value);
+    toggle()
+  }
+
+  function toggle(startOver = true) {
+    speechSynthesis.cancel()
+    if(startOver) {
+    speechSynthesis.speak(msg)
+    }
+  }
+  function setOption() {
+    console.log(this.name, this.value);
+    msg[this.name] = this.value;
+    toggle()
+  }
+  speechSynthesis.addEventListener("voiceschanged", populateVoices)
+  voicesDropdown.addEventListener("change", setVoice)
+  options.forEach(option => option.addEventListener("change", setOption))
+  speakButton.addEventListener("click", toggle)
+</script>
+
+
+
+</body></html>
