@@ -372,6 +372,12 @@ table {
   }
 }
 
+@media (min-width: 992px) and (max-width: 1199px) {
+  #single-menu-page {
+    padding: 20px;
+  }
+}
+
 .welcome-jumbo {
   transform: translate3d(350px, 0, 0);
   max-width: calc(100vw - 350px);
