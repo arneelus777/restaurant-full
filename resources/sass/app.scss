@@ -2,8 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap');
 @import "bootstrap.min.css";
 @import "reset";
-@import "home";
 @import "pages/about";
+@import "pages/waitlist";
+@import "pages/offers";
+@import "menu/index";
+@import "home";
 
 
 body {
@@ -129,7 +132,7 @@ body {
     background: -moz-radial-gradient(center, ellipse cover, #ed4852 0%, #9c1b24 100%); /* FF3.6-15 */
     background: -webkit-radial-gradient(center, ellipse cover, #ed4852 0%,#9c1b24 100%); /* Chrome10-25,Safari5.1-6 */
     background: radial-gradient(ellipse at center, #ed4852 0%,#9c1b24 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    overflow: hidden;
+    // overflow: hidden;
   }
   
 }
@@ -391,6 +394,7 @@ h2{
   }
 }
 
+
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991px){
   #app-layout {
@@ -452,6 +456,10 @@ h2{
     }
   }
  }
+ .content-box {
+  background: white;
+  padding: 20px;
+}
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) and (max-width: 1199px){ }
