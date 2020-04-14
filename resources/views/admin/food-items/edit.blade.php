@@ -40,7 +40,7 @@
                                             <input id="inputItem" type="text" name="title" data-parsley-trigger="change" required="" placeholder="Enter Item Name" autocomplete="off" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputItem">Item Price</label>
+                                            <label fossr="inputItem">Item Price</label>
                                             <input id="inputItem" type="text" name="price" data-parsley-trigger="change" required="" placeholder="Enter Item Price" autocomplete="off" class="form-control">
                                         </div>
                                         <div class="form-group">

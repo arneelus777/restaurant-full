@@ -7,6 +7,14 @@
 						<div class="col-md-6">
 								<h1>Get on the List</h1>
 								<form>
+										<div class="form-group">
+								        <label for="firstnameinput">First Name</label>
+								        <input name="fname" type="text" class="form-control" id="firstnameinput" placeholder="John">
+								    </div>
+										<div class="form-group">
+								        <label for="lastnameinput">First Name</label>
+								        <input name="lname" type="text" class="form-control" id="lastnameinput" placeholder="Doe">
+								    </div>
 								    <div class="form-group">
 								        <label for="emailinput">Email address</label>
 								        <input type="email" class="form-control" name="email" id="emailinput" placeholder="name@example.com">
