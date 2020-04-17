@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function dashboard(){
         return view('admin/dashboard');
     }
 }
-// Route::get('/admin', function () {
-//     return view('admin/dashboard');
-// });
