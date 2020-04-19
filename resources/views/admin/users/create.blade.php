@@ -86,7 +86,7 @@
                                         <div class="form-group">
                                             <label for="inputpassword">Confirm Password</label>
                                             <input id="inputpassword" type="password" class="form-control form-control-lg"
-                            name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
+                                                name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
                                         </div>
                                         <div class="form-group">
                                             <label for="inputrole">Role</label>
